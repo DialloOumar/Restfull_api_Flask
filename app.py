@@ -20,11 +20,6 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 jwt = JWT(app, authenticate, identity)
 
 
-@app.before_first_request
-def create_table():
-    db.create_all()
-
-
 api.add_resource(Store, "/store/<string:name>")
 api.add_resource(Item, "/Item/<string:name>")
 api.add_resource(ItemsList, "/Items")
@@ -33,6 +28,5 @@ api.add_resource(StoreItem, "/stores")
 
 if __name__ == "__main__":
     from db import db
-
     db.init_app(app)
     app.run(port=5000, debug=True)
