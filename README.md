@@ -8,10 +8,10 @@ installation:
 -pip install flask-JWT
 
 Description:
-The project is about creating a Restapi for a store management system, where we can create a store, add
+The project is about creating a Rest api for a store management system, where we can create a store, add
 items to the store, retrive those items, delete them.
 
 Implementaton:
-We use JWT for authentication and also SqlAlchamy as the ORM for easy connection and easy operations
+We use JWT for authentication and also SqlAlchemy as the ORM for easy connection and easy operations
 with an sqlite database
 
