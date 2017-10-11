@@ -3,6 +3,7 @@
 The purpose of this api is to demonstrate
 FlaskRest-full
 """
+import os
 from flask import Flask
 from flask_jwt import JWT
 from flask_restful import Api
@@ -12,10 +13,11 @@ from security import authenticate, identity
 from resources.item import Item, ItemsList
 from resources.store import Store, StoreItem
 
+
 app = Flask(__name__)
 api = Api(app)
 app.secret_key = "hello key"
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL", "sqlite:///data.db")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 jwt = JWT(app, authenticate, identity)
 
